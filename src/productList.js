@@ -1,4 +1,4 @@
-export default [
+const data = [
   {
     id: 1,
     title:
@@ -45,3 +45,5 @@ export default [
     rating: 4,
   },
 ]
+
+export default data

@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import tw from "tailwind-styled-components"
 import Product from "../components/Product"
-import items from "../producList"
+import data from "../productList"
 
 const Home = () => {
-  const [productList, setProductList] = useState(items)
-
+  const [productList, setProductList] = useState(data)
+  console.log(setProductList)
   return (
     <Container>
       <HomeImg src="./assets/home-banner.jpg" alt="Alexa ring" />
