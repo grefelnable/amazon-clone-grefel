@@ -1,14 +1,5 @@
 export const initialState = {
-  cart: [
-    {
-      id: 1,
-      image: "./assets/bose.jpg",
-      price: 409.99,
-      rating: 4,
-      title:
-        "Bose Noise Cancelling Wireless Bluetooth Headphones 700, with Alexa Voice Control, Black",
-    },
-  ],
+  cart: [],
   user: null,
 }
 export const getCartTotal = (cart) =>

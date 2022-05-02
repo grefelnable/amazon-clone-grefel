@@ -25,7 +25,7 @@ const Navbar = () => {
         <Link to="/login">
           <HeaderOption>
             <SmallText>Hello</SmallText>
-            <Text>Account & Lists</Text>
+            <Text>Account</Text>
           </HeaderOption>
         </Link>
 
