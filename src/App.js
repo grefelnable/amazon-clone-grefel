@@ -8,8 +8,8 @@ import { auth } from "./firebase"
 import { useStateValue } from "./components/StateProvider"
 
 function App() {
-  const [{ user }, dispatch] = useStateValue()
-  console.log(user)
+  // eslint-disable-next-line no-unused-vars
+  const [{ cart }, dispatch] = useStateValue()
 
   React.useEffect(() => {
     auth.onAuthStateChanged((authUser) => {

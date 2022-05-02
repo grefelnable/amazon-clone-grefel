@@ -4,8 +4,9 @@ import Product from "../components/Product"
 import data from "../productList"
 
 const Home = () => {
+  // eslint-disable-next-line no-unused-vars
   const [productList, setProductList] = useState(data)
-  console.log(setProductList)
+
   return (
     <Container>
       <HomeImg src="./assets/home-banner.jpg" alt="Alexa ring" />

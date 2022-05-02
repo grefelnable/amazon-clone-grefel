@@ -4,8 +4,8 @@ import { AiFillStar } from "react-icons/ai"
 import { useStateValue } from "./StateProvider"
 
 const Product = ({ id, title, image, price, rating }) => {
-  const [{ cart }, dispatch] = useStateValue()
-  console.log(cart)
+  // eslint-disable-next-line no-empty-pattern
+  const [{}, dispatch] = useStateValue()
 
   const addToCart = () => {
     dispatch({
