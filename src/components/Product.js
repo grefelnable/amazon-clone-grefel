@@ -4,7 +4,7 @@ import { AiFillStar } from "react-icons/ai"
 import { useStateValue } from "./StateProvider"
 
 const Product = ({ id, title, image, price, rating }) => {
-  const [dispatch] = useStateValue()
+  const [{ cart }, dispatch] = useStateValue()
 
   const addToCart = () => {
     dispatch({
