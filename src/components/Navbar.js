@@ -4,10 +4,17 @@ import { FaSearch } from "react-icons/fa"
 import { FiShoppingCart } from "react-icons/fi"
 import tw from "tailwind-styled-components"
 import { useStateValue } from "./StateProvider"
+import { auth } from "../firebase"
 
 const Navbar = () => {
-  const [{ cart }] = useStateValue()
-  console.log(cart)
+  const [{ cart, user }] = useStateValue()
+
+  const handleAuthentication = () => {
+    if (user) {
+      auth.signOut()
+    }
+  }
+
   return (
     <Header>
       <Link to="/">
@@ -22,10 +29,10 @@ const Navbar = () => {
       </SearchContainer>
 
       <HeaderNav>
-        <Link to="/login">
-          <HeaderOption>
-            <SmallText>Hello</SmallText>
-            <Text>Account</Text>
+        <Link to={!user && "/login"}>
+          <HeaderOption onClick={handleAuthentication}>
+            <SmallText>Hello </SmallText>
+            <Text>{user ? "Sign Out" : "Sign In"}</Text>
           </HeaderOption>
         </Link>
 

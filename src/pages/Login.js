@@ -70,7 +70,7 @@ const Login = () => {
 export default Login
 // Styles
 const Container = tw.div`
-pt-4 bg-white
+pt-4 bg-white h-screen
 `
 const Logo = tw.img`
 w-28 mx-auto mb-4

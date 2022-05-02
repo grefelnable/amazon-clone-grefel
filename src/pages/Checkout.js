@@ -5,7 +5,7 @@ import { useStateValue } from "../components/StateProvider"
 import Subtotal from "../components/Subtotal"
 
 const Checkout = () => {
-  const [{ cart }] = useStateValue()
+  const [{ cart, user }] = useStateValue()
 
   return (
     <Container>
@@ -27,10 +27,12 @@ const Checkout = () => {
 
       {cart?.length === 0 ? (
         <EmptyCartContainer>
+          <UserName>Hello, {user?.email}</UserName>
           <h2>Your Amazon cart is empty.</h2>
         </EmptyCartContainer>
       ) : (
         <CartItems>
+          <UserName>Hello, {user?.email}</UserName>
           <Heading>Shopping Cart</Heading>
           <PriceText>Price</PriceText>
           {cart?.map((item) => (
@@ -71,6 +73,9 @@ border border-slate-300 p-4 bg-white w-11/12 mx-auto
 `
 const EmptyCartContainer = tw(CartItems)`
 
+`
+const UserName = tw.h4`
+font-medium mb-2
 `
 const Heading = tw.h2`
 text-3xl font-medium

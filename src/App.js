@@ -4,8 +4,30 @@ import Home from "./pages/Home"
 import Login from "./pages/Login"
 import SharedLayout from "./pages/SharedLayout"
 import Checkout from "./pages/Checkout"
+import { auth } from "./firebase"
+import { useStateValue } from "./components/StateProvider"
 
 function App() {
+  const [{}, dispatch] = useStateValue()
+
+  React.useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      console.log("user is", authUser)
+
+      if (authUser) {
+        dispatch({
+          type: "SET_USER",
+          user: authUser,
+        })
+      } else {
+        dispatch({
+          type: "SET_USER",
+          user: null,
+        })
+      }
+    })
+  }, [])
+
   return (
     <BrowserRouter>
       <Routes>

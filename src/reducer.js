@@ -2,6 +2,7 @@ export const initialState = {
   cart: [],
   user: null,
 }
+// Selector
 export const getCartTotal = (cart) =>
   cart?.reduce((amount, item) => item.price + amount, 0)
 
@@ -15,7 +16,6 @@ const reducer = (state, action) => {
       }
     case "REMOVE_FROM_BASKET":
       let newCart = [...state.cart]
-
       const index = state.cart.findIndex(
         (cartItem) => cartItem.id === action.id
       )
@@ -26,8 +26,14 @@ const reducer = (state, action) => {
           `Can't remove product (id: ${action.id}) as it's not in cart`
         )
       }
-
       return { ...state, cart: newCart }
+
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.user,
+      }
+
     default:
       return state
   }
