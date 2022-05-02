@@ -11,9 +11,10 @@ function App() {
   const [{ user }, dispatch] = useStateValue()
   console.log(user)
 
-  const getAuth = () => {
+  React.useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
       console.log("user is", authUser)
+
       if (authUser) {
         dispatch({
           type: "SET_USER",
@@ -26,10 +27,7 @@ function App() {
         })
       }
     })
-  }
-  React.useEffect(() => {
-    getAuth()
-  }, [])
+  }, [dispatch])
 
   return (
     <BrowserRouter>
