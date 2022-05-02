@@ -12,21 +12,24 @@ function App() {
   console.log(user)
 
   React.useEffect(() => {
-    auth.onAuthStateChanged((authUser) => {
-      console.log("user is", authUser)
+    const getAuth = () => {
+      auth.onAuthStateChanged((authUser) => {
+        console.log("user is", authUser)
 
-      if (authUser) {
-        dispatch({
-          type: "SET_USER",
-          user: authUser,
-        })
-      } else {
-        dispatch({
-          type: "SET_USER",
-          user: null,
-        })
-      }
-    })
+        if (authUser) {
+          dispatch({
+            type: "SET_USER",
+            user: authUser,
+          })
+        } else {
+          dispatch({
+            type: "SET_USER",
+            user: null,
+          })
+        }
+      })
+    }
+    getAuth()
   }, [])
 
   return (
