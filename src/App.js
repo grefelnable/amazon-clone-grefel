@@ -11,24 +11,23 @@ function App() {
   const [{ user }, dispatch] = useStateValue()
   console.log(user)
 
+  const getAuth = () => {
+    auth.onAuthStateChanged((authUser) => {
+      console.log("user is", authUser)
+      if (authUser) {
+        dispatch({
+          type: "SET_USER",
+          user: authUser,
+        })
+      } else {
+        dispatch({
+          type: "SET_USER",
+          user: null,
+        })
+      }
+    })
+  }
   React.useEffect(() => {
-    const getAuth = () => {
-      auth.onAuthStateChanged((authUser) => {
-        console.log("user is", authUser)
-
-        if (authUser) {
-          dispatch({
-            type: "SET_USER",
-            user: authUser,
-          })
-        } else {
-          dispatch({
-            type: "SET_USER",
-            user: null,
-          })
-        }
-      })
-    }
     getAuth()
   }, [])
 
