@@ -1,7 +1,6 @@
 import React from "react"
 import tw from "tailwind-styled-components"
 import CheckoutProduct from "../components/CheckoutProduct"
-import CurrencyFormat from "react-currency-format"
 import { useStateValue } from "../components/StateProvider"
 import Subtotal from "../components/Subtotal"
 
