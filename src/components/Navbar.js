@@ -31,7 +31,7 @@ const Navbar = () => {
       <HeaderNav>
         <Link to={!user && "/login"}>
           <HeaderOption onClick={handleAuthentication}>
-            <SmallText>Hello </SmallText>
+            <GreetUser>Hello {user ? user.email : "Guest"} </GreetUser>
             <Text>{user ? "Sign Out" : "Sign In"}</Text>
           </HeaderOption>
         </Link>
@@ -80,13 +80,16 @@ const HeaderNav = tw.div`
 flex
 `
 const HeaderOption = tw.div`
-text-white border p-1 border-transparent hover:border hover:border-white
+text-white border p-1 border-transparent hover:border hover:border-white 
 `
 const SmallText = tw.p`
 text-xs font-medium -mb-1 
 `
+const GreetUser = tw(SmallText)`
+hidden md:block
+`
 const Text = tw.p`
-font-black tracking-tighter
+font-black tracking-tighter 
 `
 const HeaderOptionCart = tw.div`
 text-white flex gap-2 border p-1 border-transparent hover:border hover:border-white h-11 items-center
